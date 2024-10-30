@@ -1,0 +1,67 @@
+.get-started-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    min-height: 100vh; /* Ensure the page covers the full viewport height */
+}
+
+h1 {
+    font-size: 3rem; /* Increase font size for the heading */
+    /* margin-bottom: 20px;  */
+}
+
+.box-container {
+    display: flex; /* Arrange boxes in a row */
+    justify-content: center; /* Center the boxes */
+    align-items: stretch; /* Make boxes stretch to the same height */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: limit the maximum width */
+    gap: 20px; /* Space between boxes */
+    margin-top: 100px; /* Increase space above the boxes to push them down */
+}
+
+.box {
+    flex: 1; /* Allow boxes to grow and fill space equally */
+    min-width: 300px; /* Ensure a minimum width */
+    max-width: 400px; /* Optional: limit the maximum width of each box */
+    height: 300px; /* Set a fixed height for boxes */
+    padding: 20px; /* Padding around content */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f8f9fa; /* Keep background consistent */
+    
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.box h2 {
+    margin-bottom: 15px; /* Space below the heading */
+    font-size: 1.5rem; /* Slightly larger font size for better readability */
+}
+
+input[type="file"], input[type="text"] {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Inner spacing for input fields */
+    margin-bottom: 10px; /* Space below input fields */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.submit-button, .generate-button {
+    padding: 10px 20px; /* Button padding */
+    background-color: #736eef; /* Button background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    margin-top: 10px; /* Space above buttons */
+}
+
+.submit-button:hover, .generate-button:hover {
+    background-color: #5c5f91; /* Darker shade for hover */
+}

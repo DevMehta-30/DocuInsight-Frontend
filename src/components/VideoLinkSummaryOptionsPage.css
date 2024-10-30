@@ -1,0 +1,75 @@
+/* VideoLinkSummaryOptionsPage.css */
+
+.summary-options-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    padding: 40px;
+    min-height: 100vh; /* Cover full viewport height */
+    background-color: white; /* Optional: change background color */
+}
+
+.title {
+    font-size: 2.5rem; /* Large title */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center the title text */
+}
+
+.button-container {
+    margin-bottom: 20px; /* Space below the button */
+}
+
+.action-button {
+    padding: 10px 20px;
+    background-color: #736eef; /* Match your theme color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Increase font size for visibility */
+}
+
+.action-button:hover {
+    background-color: #5c5f91; /* Darker shade for hover effect */
+}
+
+.or-line {
+    margin: 20px 0; /* Space above and below */
+    font-size: 2rem; /* Increase font size for visibility */
+    color: #666; /* Color of the or line */
+    text-align: center; /* Center the or line */
+}
+
+.video-link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center video link input */
+    width: 100%;
+    max-width: 400px; /* Limit width */
+    text-align: center; /* Center text inside */
+}
+
+.video-link-container input {
+    width: 70%; /* Full width */
+    padding: 10px; /* Space inside input */
+    margin: 10px 0; /* Space around input */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    align-items: center;
+    text-align: center;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #736eef; /* Match your theme color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Increase font size for visibility */
+}
+
+.submit-button:hover {
+    background-color: #5c5f91; /* Darker shade for hover effect */
+}
