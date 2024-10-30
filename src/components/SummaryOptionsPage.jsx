@@ -46,7 +46,7 @@ function SummaryOptionsPage() {
   const handleSummarizeClick = async () => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/summarize",
+        "https://docuinsight-backend.onrender.com/summarize",
         { content: combinedText },
         {
           headers: {
