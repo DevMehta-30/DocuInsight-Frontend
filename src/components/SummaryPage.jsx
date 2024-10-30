@@ -15,7 +15,7 @@ function SummaryPage() {
     try {
       // Send the summary text to the backend to generate a quiz
       const response = await axios.post(
-        "https://docuinsight-backend.onrender.com/generate_quiz",
+        "http://127.0.0.1:5000/generate_quiz",
         { text: combinedText }, // Use summary text as input for quiz generation
         {
           headers: {

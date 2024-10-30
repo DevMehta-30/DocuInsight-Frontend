@@ -18,7 +18,7 @@ function GetStartedPage() {
 
       try {
         const response = await axios.post(
-          "https://docuinsight-backend.onrender.com/process_files",
+          "http://127.0.0.1:5000/process_files",
           formData,
           {
             headers: {
