@@ -81,6 +81,7 @@ function GetStartedPage() {
   const [fileInputs, setFileInputs] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [videoLink, setVideoLink] = useState("");
 
   const handleFileChange = (event) => {
     setFileInputs([...event.target.files]);
@@ -114,13 +115,36 @@ function GetStartedPage() {
     }
   };
 
-  const handleVideoSubmit = () => {
-    navigate("/video-link-summary");
+  const handleVideoSubmit = async () => {
+    if (videoLink) {
+      setLoading(true); // Start loading when video submit begins
+      try {
+        const response = await axios.post(
+          "http://127.0.0.1:5000/summarize_youtube",
+          { url: videoLink },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        navigate("/video-link-summary", {
+          state: { text: response.data.text },
+        });
+      } catch (error) {
+        console.error("Error processing the video link:", error);
+        alert("Error processing the video link. Please try again.");
+      } finally {
+        setLoading(false); // Stop loading once API call finishes
+      }
+    } else {
+      alert("Please enter a video link.");
+    }
   };
 
   return (
     <div className="get-started-page">
-      <h1>Get Started</h1>
+      {!loading && <h1 className="title">What Would You Like to Do?</h1>}{" "}
       {loading ? (
         <Spinner /> // Display the spinner component when loading
       ) : (
@@ -134,15 +158,15 @@ function GetStartedPage() {
           </div>
           <div className="box video-link">
             <h2>Enter Video Link</h2>
-            <input type="text" placeholder="Paste video link here..." />
+            <input
+              type="text"
+              placeholder="Paste video link here..."
+              value={videoLink}
+              onChange={(e) => setVideoLink(e.target.value)}
+            />
             <button className="submit-button" onClick={handleVideoSubmit}>
               Submit
             </button>
-          </div>
-          <div className="box generate-quiz">
-            <h2>Generate Quiz</h2>
-            <input type="text" placeholder="Enter quiz details..." />
-            <button className="generate-button">Generate</button>
           </div>
         </div>
       )}

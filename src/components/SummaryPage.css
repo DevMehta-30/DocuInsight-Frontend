@@ -1,41 +1,92 @@
-/* SummaryPage.css */
 .summary-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    height: 100vh; /* Full viewport height */
-    background-color: #f9f9f9; /* Light background color */
-    padding: 20px; /* Padding around the page */
-  }
-  
-  .summary-title {
-    text-align: center; /* Center the title */
-    margin-bottom: 20px; /* Space below the title */
-    font-size: 2rem; /* Title font size */
-  }
-  
-  .summary-box {
-    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding inside the box */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    max-width: 600px; /* Maximum width for the summary box */
-    width: 100%; /* Full width */
-    margin-bottom: 20px; /* Space below the summary box */
-  }
-  
-  .generate-quiz-button {
-    padding: 10px 15px; /* Padding inside the button */
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    align-self: center; /* Align button to the right */
-  }
-  
-  .generate-quiz-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  padding: 20px; /* Padding around the page */
+  background-color: #f9f9f9; /* Light background color */
+  min-height: 100vh; /* Cover full viewport height */
+}
+
+.summary-title {
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Space below the title */
+  font-size: 2rem; /* Title font size */
+}
+
+.summary-box {
+  background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 600px; /* Maximum width for the summary box */
+  width: 100%; /* Full width */
+  margin-bottom: 20px; /* Space below the summary box */
+}
+
+.generate-quiz-button {
+  padding: 10px 15px; /* Padding inside the button */
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.generate-quiz-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Quiz section styles */
+.quiz-section {
+  background-color: white; /* White background for the quiz box */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 600px; /* Maximum width for the quiz box */
+  width: 100%; /* Full width */
+  margin-top: 20px; /* Space above the quiz section */
+  max-height: 300px; /* Fixed height for scrollable box */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.quiz-section h2 {
+  text-align: center; /* Center the quiz section title */
+  margin-bottom: 20px; /* Space below the title */
+  font-size: 1.5rem; /* Title font size */
+}
+
+.quiz-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.quiz-item {
+  background-color: rgba(
+    240,
+    240,
+    240,
+    0.9
+  ); /* Light grey for each question/answer pair */
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px; /* Padding inside each question-answer item */
+  margin-bottom: 15px; /* Space between items */
+  word-wrap: break-word; /* Break long words to fit within box */
+}
+
+.quiz-item p {
+  margin: 0; /* Remove default paragraph margin */
+}
+
+.quiz-item p:first-child {
+  font-weight: bold; /* Make the question text bold */
+}
+
+.quiz-item p strong {
+  font-weight: normal; /* Reset strong tag inside question */
+}
+
+.quiz-item p + p {
+  margin-top: 10px; /* Space between question and answer */
+}
