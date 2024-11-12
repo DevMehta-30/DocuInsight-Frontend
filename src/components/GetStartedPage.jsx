@@ -129,7 +129,7 @@ function GetStartedPage() {
           }
         );
         navigate("/video-link-summary", {
-          state: { text: response.data.text },
+          state: { transcript: response.data.transcript },
         });
       } catch (error) {
         console.error("Error processing the video link:", error);

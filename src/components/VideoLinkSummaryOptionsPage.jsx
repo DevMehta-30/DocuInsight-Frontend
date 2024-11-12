@@ -1,16 +1,17 @@
 // VideoLinkSummaryOptionsPage.jsx
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
+import { useNavigate, useLocation } from "react-router-dom"; // Import useNavigate and useLocation for routing
 import "./VideoLinkSummaryOptionsPage.css"; // Import the new CSS file
 import axios from "axios";
-// import Spinner from "./Spinner";
 
 function VideoLinkSummaryOptionsPage() {
-  // const [fileInputs, setFileInputs] = useState([]);
+  const [fileInputs, setFileInputs] = useState([]); // State for file inputs
   const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
   const location = useLocation();
-  const [combinedText, setCombinedText] = useState(location.state?.text || "");
+  const [combinedText, setCombinedText] = useState(
+    location.state?.transcript || ""
+  );
 
   const handleFileSubmit = async () => {
     if (fileInputs.length > 0) {
@@ -30,7 +31,7 @@ function VideoLinkSummaryOptionsPage() {
         );
         const newText = response.data.text;
         setCombinedText((prevText) => prevText + "\n" + newText);
-        alert("Video link submitted and combined with PDF content!");
+        alert("Files processed and combined with PDF content!");
       } catch (error) {
         console.error("Error processing the files:", error);
         alert("Error processing the files. Please try again.");
@@ -67,7 +68,7 @@ function VideoLinkSummaryOptionsPage() {
 
   return (
     <div className="summary-options-page">
-      {!loading && <h1 className="title">What Would You Like to Do?</h1>}{" "}
+      {!loading && <h1 className="title">What Would You Like to Do?</h1>}
       <div className="button-container">
         <button className="action-button" onClick={handleSummarizeClick}>
           Summarize Content
@@ -76,7 +77,11 @@ function VideoLinkSummaryOptionsPage() {
       <p className="or-line">OR</p>
       <div className="video-link-container">
         <h2>Upload file</h2>
-        <input type="file" onChange={(e) => setVideoLink(e.target.value)} />
+        <input
+          type="file"
+          multiple
+          onChange={(e) => setFileInputs([...e.target.files])}
+        />
         <button className="submit-button" onClick={handleFileSubmit}>
           Submit
         </button>
